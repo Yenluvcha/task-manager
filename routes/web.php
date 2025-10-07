@@ -6,6 +6,7 @@ use App\Http\Controllers\SessionController;
 
 Route::view('/', 'dashboard');
 Route::view('/dashboard', 'dashboard');
+Route::view('/tasks', 'tasks.index');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisteredUserController::class, 'create']);

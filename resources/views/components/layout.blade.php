@@ -31,7 +31,7 @@
                         <div class="hidden md:block">
                             <div class="flex items-baseline ml-10 space-x-4">
                                 <x-nav-link href="/" :active="request()->is('/')">Dashboard</x-nav-link>
-                                <x-nav-link href="#" :active="request()->is('about')">Tasks</x-nav-link>
+                                <x-nav-link href="/tasks" :active="request()->is('tasks')">Tasks</x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
             <div class="hidden md:hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <x-nav-link-mobile href="/" :active="request()->is('/')">Dashboard</x-nav-link-mobile>
-                    <x-nav-link-mobile href="#" :active="request()->is('about')">Tasks</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/tasks" :active="request()->is('tasks')">Tasks</x-nav-link-mobile>
                 </div>
                 <div class="px-2 pt-2 pb-3 space-y-1 border-t border-zinc-300 dark:border-zinc-700 sm:px-3">
                     @auth
