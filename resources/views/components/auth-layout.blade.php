@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full bg-zinc-100">
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
     </script>
 </head>
 
-<body class="h-full font-inter">
+<body class="h-full font-inter dark:bg-zinc-950">
 
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 
