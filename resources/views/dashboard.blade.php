@@ -9,7 +9,7 @@
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">Total Tasks</p>
                 <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">200</h3>
             </div>
-            <div class="flex items-center justify-center w-16 h-16 rounded-sm bg-zinc-500/10">
+            <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-zinc-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -24,7 +24,7 @@
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">Completed</p>
                 <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">100</h3>
             </div>
-            <div class="flex items-center justify-center w-16 h-16 rounded-sm bg-green-500/10">
+            <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-green-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -39,7 +39,7 @@
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">In Progress</p>
                 <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">20</h3>
             </div>
-            <div class="flex items-center justify-center w-16 h-16 rounded-sm bg-yellow-500/10">
+            <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-yellow-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -54,7 +54,7 @@
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">To Do</p>
                 <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">80</h3>
             </div>
-            <div class="flex items-center justify-center w-16 h-16 rounded-sm bg-blue-500/10">
+            <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-blue-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
