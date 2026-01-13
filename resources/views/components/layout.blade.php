@@ -24,13 +24,14 @@
                     <div class="flex items-center">
                         <div class="shrink-0">
                             <a href="/">
-                                <img class="size-8 rounded-md" src="{{ Vite::asset('resources/images/logo.svg') }}"
-                                    alt="Your Company">
+                                <img class="rounded-md shadow-xs size-8"
+                                    src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Your Company">
                             </a>
                         </div>
                         <div class="hidden md:block">
                             <div class="flex items-baseline ml-10 space-x-4">
-                                <x-nav-link href="/" :active="request()->is('/')">Dashboard</x-nav-link>
+                                <x-nav-link href="/dashboard" :active="request()->is('dashboard')">Dashboard
+                                </x-nav-link>
                                 <x-nav-link href="/tasks" :active="request()->is('tasks')">Tasks</x-nav-link>
                             </div>
                         </div>
@@ -39,14 +40,7 @@
                     <div class="hidden md:block">
                         <div class="flex items-center ml-4 md:ml-6 gap-x-2">
 
-                            @auth
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button type="submit"
-                                    class="px-3 py-2 text-sm font-medium rounded-md text-zinc-800 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 dark:hover:text-white">Sign
-                                    out</button>
-                            </form>
-                            @endauth
+                            <p class="text-sm me-2 dark:text-white">Welcome, <b>{{ auth()->user()->name }}</b></p>
 
                             <button id="theme-toggle" type="button"
                                 class="p-2 text-sm font-medium rounded-md text-zinc-900 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white">
@@ -62,6 +56,16 @@
                                         d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                                 </svg>
                             </button>
+
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button type="submit"
+                                    class="px-3 py-2 text-sm font-medium rounded-md cursor-pointer text-zinc-800 dark:text-zinc-300 hover:bg-red-500 hover:text-white">Sign
+                                    out</button>
+                                {{-- <button type="submit"
+                                    class="px-3 py-2 text-sm font-medium text-white bg-red-600 rounded-md cursor-pointer hover:bg-red-500 dark:hover:text-white">Sign
+                                    out</button> --}}
+                            </form>
 
                         </div>
                     </div>
@@ -109,26 +113,27 @@
 
             <!-- Mobile menu, show/hide based on menu state. -->
             <div class="hidden md:hidden" id="mobile-menu">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <x-nav-link-mobile href="/" :active="request()->is('/')">Dashboard</x-nav-link-mobile>
+                <div class="px-2 py-3 space-y-3 sm:px-3">
+                    <x-nav-link-mobile href="/dashboard" :active="request()->is('dashboard')">Dashboard
+                    </x-nav-link-mobile>
                     <x-nav-link-mobile href="/tasks" :active="request()->is('tasks')">Tasks</x-nav-link-mobile>
                 </div>
-                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-zinc-300 dark:border-zinc-700 sm:px-3">
-                    @auth
+                <div class="px-2 py-3 space-y-3 border-t border-zinc-300 dark:border-zinc-700 sm:px-3">
+                    <p class="px-3 text-sm dark:text-white">Welcome, <b>{{ auth()->user()->name }}</b></p>
                     <form method="POST" action="/logout">
                         @csrf
                         <button type="submit"
-                            class="block px-3 py-2 text-sm font-medium rounded-md text-zinc-300 hover:bg-zinc-700 hover:text-white">Sign
+                            class="block w-full px-3 py-2 text-sm font-medium rounded-md cursor-pointer text-start text-zinc-800 dark:text-zinc-300 hover:bg-red-500 hover:text-white">Sign
                             out</button>
                     </form>
-                    @endauth
+
                 </div>
             </div>
         </nav>
 
 
         <main>
-            <div class="px-4 pt-6 pb-1.5 mx-auto max-w-7xl sm:px-6 lg:px-8 dark:text-white">
+            <div class="px-4 pt-6 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8 dark:text-white">
                 {{ $slot }}
             </div>
         </main>

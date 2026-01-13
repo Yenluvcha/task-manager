@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
@@ -13,9 +16,9 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $validated_attributes = request()->validate([
+        $validated_attributes = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', Password::min(6), 'confirmed'],
@@ -26,7 +29,5 @@ class RegisteredUserController extends Controller
         Auth::login($new_user);
 
         return redirect('/');
-
     }
 }
-

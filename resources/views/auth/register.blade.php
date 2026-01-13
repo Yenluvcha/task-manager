@@ -1,39 +1,74 @@
 <x-auth-layout>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm shadow-sm rounded-xl p-6 border border-zinc-100 bg-white dark:bg-zinc-900 dark:border-zinc-800">
+    <div
+        class="p-6 mt-10 bg-white border shadow-sm sm:mx-auto sm:w-full sm:max-w-sm rounded-xl border-zinc-100 dark:bg-zinc-900 dark:border-zinc-800">
 
         <div class="mb-6 text-center">
-            <img class="mx-auto h-14 w-14 mb-6 rounded-lg shadow-sm" src="{{ Vite::asset('resources/images/logo.svg') }}"
-                alt="Your Company">
+            <img class="mx-auto mb-6 rounded-lg shadow-sm h-14 w-14"
+                src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Your Company">
             <h5 class="font-semibold text-zinc-900 dark:text-white">Register an account</h5>
         </div>
 
-        <form action="#" method="POST" class="space-y-6">
+        <form action="/register" method="POST" class="space-y-6">
+            @csrf
+
             <div>
-                <label for="email" class="block text-sm/6 font-medium text-zinc-900 dark:text-white">Email address</label>
+                <label for="name" class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Name</label>
                 <div class="mt-2">
-                    <input id="email" type="email" name="email" required autocomplete="email"
+                    <input id="name" type="text" name="name" value="{{ old('name') }}"
                         class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" />
+                    @error('name')
+                    <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
+                            {{ $message }}
+                    </p>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <label for="email" class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Email
+                    address</label>
+                <div class="mt-2">
+                    <input id="email" type="email" name="email" autocomplete="email" value="{{ old('email') }}"
+                        class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" />
+                    @error('email')
+                    <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
+                            {{ $message }}
+                    </p>
+                    @enderror
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm/6 font-medium text-zinc-900 dark:text-white">Password</label>
+                    <label for="password"
+                        class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Password</label>
                 </div>
                 <div class="mt-2">
-                    <input id="password" type="password" name="password" required autocomplete="current-password"
+                    <input id="password" type="password" name="password" autocomplete="current-password"
                         class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" />
+                    @error('password')
+                    <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
+                            {{ $message }}
+                    </p>
+                    @enderror
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm/6 font-medium text-zinc-900 dark:text-white">Confirm Password</label>
+                    <label for="confirmPassword"
+                        class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Confirm Password</label>
                 </div>
                 <div class="mt-2">
-                    <input id="password" type="password" name="password" required autocomplete="current-password"
+                    <input id="confirmPassword" type="password" name="password_confirmation"
+                        autocomplete="current-password"
                         class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" />
+                    @error('password_confirmation')
+                    <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
+                            {{ $message }}
+                    </p>
+                    @enderror
                 </div>
             </div>
 
