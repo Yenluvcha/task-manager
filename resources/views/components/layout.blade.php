@@ -18,7 +18,7 @@
 <body class="h-full font-inter">
 
     <div class="min-h-full dark:bg-zinc-950">
-        <nav class="bg-zinc-50 dark:bg-black">
+        <nav class="bg-zinc-50 dark:bg-black fixed w-full z-20 top-0 start-0">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
@@ -132,7 +132,7 @@
         </nav>
 
 
-        <main>
+        <main class="pt-[64px]">
             <div class="px-4 pt-6 pb-6 mx-auto max-w-7xl sm:px-6 lg:px-8 dark:text-white">
                 {{ $slot }}
             </div>
