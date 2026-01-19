@@ -18,7 +18,7 @@
 <body class="h-full font-inter">
 
     <div class="min-h-full dark:bg-zinc-950">
-        <nav class="bg-zinc-50 dark:bg-black fixed w-full z-20 top-0 start-0">
+        <nav class="fixed top-0 z-20 w-full bg-zinc-50 dark:bg-black start-0">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
@@ -43,7 +43,7 @@
                             <p class="text-sm me-2 dark:text-white">Welcome, <b>{{ auth()->user()->name }}</b></p>
 
                             <button id="theme-toggle" type="button"
-                                class="p-2 text-sm font-medium rounded-md text-zinc-900 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white">
+                                class="p-2 text-sm font-medium transition-colors duration-200 rounded-md cursor-pointer text-zinc-900 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                     stroke="currentColor" class="hidden size-5" id="theme-toggle-light-icon">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -60,7 +60,7 @@
                             <form method="POST" action="/logout">
                                 @csrf
                                 <button type="submit"
-                                    class="px-3 py-2 text-sm font-medium rounded-md cursor-pointer text-zinc-800 dark:text-zinc-300 hover:bg-red-500 hover:text-white">Sign
+                                    class="px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md cursor-pointer text-zinc-800 dark:text-zinc-300 hover:bg-red-500 hover:text-white">Sign
                                     out</button>
                                 {{-- <button type="submit"
                                     class="px-3 py-2 text-sm font-medium text-white bg-red-600 rounded-md cursor-pointer hover:bg-red-500 dark:hover:text-white">Sign
@@ -72,7 +72,7 @@
                     <div class="flex -mr-2 gap-x-2 md:hidden">
 
                         <button id="mobile-theme-toggle" type="button"
-                            class="p-2 text-sm font-medium rounded-md text-zinc-900 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white">
+                            class="p-2 text-sm font-medium rounded-md cursor-pointer text-zinc-900 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" class="hidden size-5" id="mobile-theme-toggle-light-icon">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -88,7 +88,7 @@
 
                         <!-- Mobile menu button -->
                         <button type="button"
-                            class="relative inline-flex items-center justify-center p-2 rounded-md text-zinc-800 dark:bg-zinc-950 bg-zinc-100 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-black dark:hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-zinc-800 focus:outline-hidden"
+                            class="relative inline-flex items-center justify-center p-2 transition-colors duration-200 rounded-md cursor-pointer text-zinc-800 dark:bg-zinc-950 bg-zinc-100 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-black dark:hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-zinc-800 focus:outline-hidden"
                             aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
                             <span class="absolute -inset-0.5"></span>
                             <span class="sr-only">Open main menu</span>

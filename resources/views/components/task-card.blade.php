@@ -1,13 +1,13 @@
 @props(['task'])
 
-<li
-    class="flex flex-col justify-between p-4 bg-white border rounded-lg shadow-xs sm:flex-row gap-x-6 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+<a  href="tasks/{{ $task->id }}"
+    class="flex flex-col justify-between p-4 bg-white border rounded-lg shadow-xs sm:flex-row gap-x-6 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors duration-200">
     <div class="flex flex-col flex-grow min-w-0">
         <p class="font-bold truncate text-md/6 text-zinc-800 dark:text-zinc-200">{{ $task->title }}</p>
         <p class="truncate text-zinc-400 text-xs/5">Last updated: {{ $task->updated_at }}</p>
     </div>
 
-    <div class="flex items-center justify-between mt-3 sm:mt-0 gap-y-2 gap-x-2">
+    <div class="flex flex-col items-start md:flex-row md:items-center justify-between mt-3 sm:mt-0 gap-y-2 gap-x-2">
         <div class="flex items-center gap-x-2">
             <x-status-badge status="{{ $task->status }}" />
             <x-priority-badge priority="{{ $task->priority }}" />
@@ -23,7 +23,7 @@
             </span>
         </div>
 
-        <a href="tasks/{{ $task->id }}"
+        {{-- <a href="tasks/{{ $task->id }}"
             class="inline-flex cursor-pointer items-center gap-1 rounded-md bg-blue-600 px-2 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
             Details
             <svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"
@@ -31,6 +31,6 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75">
                 </path>
             </svg>
-        </a>
+        </a> --}}
     </div>
-</li>
+</a>

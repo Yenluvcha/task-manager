@@ -114,7 +114,7 @@
         <div class="flex items-center justify-between mt-6">
             <div>
                 <button type="submit" form="deleteForm"
-                    class="inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white bg-red-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 hover:bg-red-500">
+                    class="inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white transition-colors duration-200 bg-red-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 hover:bg-red-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" class="size-4 me-1">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -127,9 +127,9 @@
             </div>
             <div class="flex items-center justify-end gap-x-6">
                 <a href="/tasks/{{ $task->id }}"
-                    class="px-3 py-2 text-sm font-semibold rounded-md cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white">Cancel</a>
+                    class="px-3 py-2 text-sm font-semibold transition-colors duration-200 rounded-md cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white">Cancel</a>
                 <button type="submit"
-                    class="inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white bg-blue-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 hover:bg-blue-500">
+                    class="inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white transition-colors duration-200 bg-blue-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 hover:bg-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="size-4 me-1" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-save-icon lucide-save">

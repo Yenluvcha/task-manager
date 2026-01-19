@@ -79,9 +79,9 @@
         </div>
         <div class="flex items-center justify-end mt-6 gap-x-6">
             <a href="/tasks"
-                class="px-3 py-2 text-sm font-semibold rounded-md cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white">Cancel</a>
+                class="px-3 py-2 text-sm font-semibold transition-colors duration-200 rounded-md cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white">Cancel</a>
             <button type="submit"
-                class="px-3 py-2 text-sm font-semibold text-white bg-blue-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 hover:bg-blue-500">Create</button>
+                class="px-3 py-2 text-sm font-semibold text-white transition-colors duration-200 bg-blue-600 rounded-md cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 hover:bg-blue-500">Create</button>
         </div>
     </form>
 

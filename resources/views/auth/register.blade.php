@@ -74,9 +74,9 @@
 
             <div>
                 <button type="submit"
-                    class="flex w-full justify-center rounded-md mb-3 bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold cursor-pointer text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Register</button>
+                    class="flex w-full justify-center rounded-md mb-3 bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold cursor-pointer text-white shadow-xs hover:bg-blue-500 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Register</button>
                 <a href="/login"
-                    class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm/6 font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white">
+                    class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm/6 font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white transition-colors duration-200">
                     Cancel
                 </a>
             </div>
@@ -84,7 +84,7 @@
 
         <p class="mt-8 text-center text-sm/6 text-zinc-500 dark:text-zinc-400">
             Already have an account?
-            <a href="/login" class="font-medium text-blue-600 hover:text-blue-500">Sign in</a>
+            <a href="/login" class="font-medium text-blue-600 transition-colors duration-200 hover:text-blue-500">Sign in</a>
         </p>
     </div>
 

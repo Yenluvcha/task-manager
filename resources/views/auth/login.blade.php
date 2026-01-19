@@ -29,9 +29,9 @@
                 <div class="flex items-center justify-between">
                     <label for="password"
                         class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Password</label>
-                    <div class="text-sm">
+                    {{-- <div class="text-sm">
                         <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mt-2">
                     <input id="password" type="password" name="password" autocomplete="current-password" required
@@ -46,14 +46,14 @@
 
             <div>
                 <button type="submit"
-                    class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold cursor-pointer text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Sign
+                    class="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold cursor-pointer text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors duration-200">Sign
                     in</button>
             </div>
         </form>
 
         <p class="mt-8 text-center text-sm/6 text-zinc-500 dark:text-zinc-400">
             Don't have an account?
-            <a href="/register" class="font-medium text-blue-600 hover:text-blue-500">Create account</a>
+            <a href="/register" class="font-medium text-blue-600 transition-colors duration-200 hover:text-blue-500">Create account</a>
         </p>
     </div>
 
