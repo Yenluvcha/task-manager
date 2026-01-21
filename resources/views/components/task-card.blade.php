@@ -1,13 +1,13 @@
 @props(['task'])
 
 <a  href="tasks/{{ $task->id }}"
-    class="flex flex-col justify-between p-4 bg-white border rounded-lg shadow-xs sm:flex-row gap-x-6 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors duration-200">
+    class="flex flex-col justify-between p-4 transition-colors duration-200 bg-white border rounded-lg shadow-xs group sm:flex-row gap-x-6 border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800">
     <div class="flex flex-col flex-grow min-w-0">
-        <p class="font-bold truncate text-md/6 text-zinc-800 dark:text-zinc-200">{{ $task->title }}</p>
+        <p class="font-bold truncate text-md/6 text-zinc-800 dark:text-zinc-200 group-hover:text-blue-500">{{ $task->title }}</p>
         <p class="truncate text-zinc-400 text-xs/5">Last updated: {{ $task->updated_at }}</p>
     </div>
 
-    <div class="flex flex-col items-start md:flex-row md:items-center justify-between mt-3 sm:mt-0 gap-y-2 gap-x-2">
+    <div class="flex flex-col items-start justify-between mt-3 md:flex-row md:items-center sm:mt-0 gap-y-2 gap-x-2">
         <div class="flex items-center gap-x-2">
             <x-status-badge status="{{ $task->status }}" />
             <x-priority-badge priority="{{ $task->priority }}" />
