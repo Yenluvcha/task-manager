@@ -75,7 +75,8 @@
                                 required>
                                 <option value="">Select task priority</option>
                                 @foreach ($priorities as $priority)
-                                <option value="{{ $priority['value'] }}" {{ ($task->priority == $priority['value']) ? 'selected' : null }}>{{ $priority['name'] }}
+                                <option value="{{ $priority['value'] }}" {{ ($task->priority == $priority['value']) ?
+                                    'selected' : null }}>{{ $priority['name'] }}
                                 </option>
                                 @endforeach
                             </select>
@@ -106,6 +107,26 @@
                             </p>
                             @enderror
                         </div>
+                    </div>
+
+                    <div class="sm:col-span-4">
+                        <label class="block font-medium text-sm/6 text-zinc-900 dark:text-white mb-2">
+                            Tags</label>
+
+                        <div class="flex flex-wrap gap-2">
+                            @foreach ($tags as $tag)
+                            <label class="flex items-center gap-2 px-3 py-1 rounded-full border cursor-pointer
+                          text-sm bg-zinc-50 dark:bg-zinc-800
+                          border-zinc-300 dark:border-zinc-700">
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                                    class="rounded text-blue-600 focus:ring-blue-500" {{ $task->tags->contains($tag->id)
+                                ? 'checked' : '' }}
+                                >
+                                {{ $tag->name }}
+                            </label>
+                            @endforeach
+                        </div>
+
                     </div>
 
                 </div>

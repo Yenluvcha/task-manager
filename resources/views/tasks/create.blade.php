@@ -12,7 +12,8 @@
                             class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Title</label>
                         <div class="mt-2">
                             <input id="titleInput" type="text" name="title"
-                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" required/>
+                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6"
+                                required />
                             @error('title')
                             <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
                                     {{ $message }}
@@ -26,7 +27,8 @@
                             class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Description</label>
                         <div class="mt-2">
                             <textarea name="description" id="descriptionInput" rows="3"
-                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" required></textarea>
+                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6"
+                                required></textarea>
                             @error('description')
                             <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
                                     {{ $message }}
@@ -40,10 +42,11 @@
                             class="block font-medium text-sm/6 text-zinc-900 dark:text-white">Priority</label>
                         <div class="grid grid-cols-1 mt-2">
                             <select id="prioritySelect" name="priority"
-                                class="col-start-1 row-start-1 w-full shadow-xs appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-200 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6 dark:bg-zinc-800 dark:outline-zinc-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                class="col-start-1 row-start-1 w-full shadow-xs appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-zinc-900 outline-1 -outline-offset-1 outline-zinc-200 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6 dark:bg-zinc-800 dark:outline-zinc-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
                                 <option value="">Select task priority</option>
                                 @foreach ($priorities as $priority)
-                                    <option value="{{ $priority['value'] }}">{{ $priority['name'] }}</option>
+                                <option value="{{ $priority['value'] }}">{{ $priority['name'] }}</option>
                                 @endforeach
                             </select>
                             <svg class="self-center col-start-1 row-start-1 mr-2 text-gray-500 pointer-events-none size-5 justify-self-end sm:size-4"
@@ -65,13 +68,32 @@
                             date</label>
                         <div class="mt-2">
                             <input id="dueDateInput" type="date" name="due_date"
-                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6" required/>
+                                class="block w-full rounded-md bg-white dark:bg-zinc-800 px-3 py-1.5 text-base text-zinc-900 dark:text-white outline-1 -outline-offset-1 outline-zinc-200 dark:outline-zinc-800 shadow-xs placeholder:text-zinc-400 focus:outline-2 focus:-outline-offset-2 focus:outline-blue-600 sm:text-sm/6"
+                                required />
                             @error('due_date')
                             <p class="mt-2 text-sm text-red-500 dark:text-red-500"><span class="font-medium">
                                     {{ $message }}
                             </p>
                             @enderror
                         </div>
+                    </div>
+
+                    <div class="sm:col-span-4">
+                        <label class="block font-medium text-sm/6 text-zinc-900 dark:text-white mb-2">
+                            Tags</label>
+
+                        <div class="flex flex-wrap gap-2">
+                            @foreach ($tags as $tag)
+                            <label class="flex items-center gap-2 px-3 py-1 rounded-full border cursor-pointer
+                          text-sm bg-zinc-50 dark:bg-zinc-800
+                          border-zinc-300 dark:border-zinc-700">
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                                    class="rounded text-blue-600 focus:ring-blue-500">
+                                {{ $tag->name }}
+                            </label>
+                            @endforeach
+                        </div>
+
                     </div>
 
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +38,7 @@ class TaskController extends Controller
     {
 
         $userId = Auth::user()->id;
-        
+
         $tasks = Task::with('user')
             ->where('user_id', $userId)
             ->latest()
@@ -51,8 +52,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-
-        return view('tasks.create', ['priorities' => $this->priorities]);
+        $tags = Tag::all();
+        return view('tasks.create', ['priorities' => $this->priorities, 'tags' => $tags]);
     }
 
     /**
@@ -67,7 +68,7 @@ class TaskController extends Controller
             'due_date' => ['required', 'date']
         ]);
 
-        Task::create([
+        $task = Task::create([
             'user_id' => Auth::user()->id,
             'title' => request('title'),
             'description' => request('description'),
@@ -75,6 +76,10 @@ class TaskController extends Controller
             'priority' => request('priority'),
             'due_date' => request('due_date')
         ]);
+
+        if ($request->has('tags')) {
+            $task->tags()->sync($request->tags);
+        }
 
         return redirect('/tasks');
     }
@@ -84,6 +89,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
+        $task->load('tags');
         return view('tasks.show', ['task' => $task]);
     }
 
@@ -94,9 +100,13 @@ class TaskController extends Controller
     {
         Gate::authorize('edit-task', $task);
 
+        $task->load('tags');
+        $tags = Tag::all();
+
         return view('tasks.edit', [
             'task' => $task,
-            'priorities' => $this->priorities
+            'priorities' => $this->priorities,
+            'tags' => $tags
         ]);
     }
 
@@ -120,6 +130,9 @@ class TaskController extends Controller
             'priority' => request('priority'),
             'due_date' => request('due_date')
         ]);
+
+        $task->tags()->sync($request->tags ?? []);
+        $task->touch();
 
         return redirect('/tasks/' . $task->id);
     }
