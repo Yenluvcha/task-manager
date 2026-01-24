@@ -28,5 +28,9 @@ class Task extends Model
     {
         return $this->belongsToMany(Tag::class, 'task_tag');
     }
-    
+
+    public function activities()
+    {
+        return $this->morphMany(ActivityLog::class, 'subject')->orderBy('created_at', 'desc');;
+    }
 }

@@ -100,16 +100,30 @@
             <div class="mx-2">
                 <ol class="relative border-l border-zinc-200 dark:border-zinc-700">
 
-                    <!-- Item -->
+                    @forelse ($task->activities as $activity)
                     <li class="mb-5 ml-6">
-                        <span
-                            class="absolute -left-2 flex h-4 w-4 items-center justify-center rounded-full bg-green-600 ">
+                        <span class="absolute -left-2 flex h-4 w-4 items-center justify-center rounded-full
+                         {{ $activity->action === 'created' ? 'bg-green-600' :
+                            ($activity->action === 'updated' ? 'bg-blue-600' :
+                            ($activity->action === 'deleted' ? 'bg-red-600' : 'bg-zinc-400')) }}">
                         </span>
-                        <p class="text-sm text-zinc-400">Initial planning and requirement gathering.</p>
-                        <time class="mb-1 text-xs text-zinc-500">Mar 2026</time>
+
+                        <p class="text-sm text-zinc-400">
+                            <span class="font-medium text-zinc-700 dark:text-zinc-200">
+                                {{ $activity->description }}
+                            </span>
+                        </p>
+
+                        <time class="mb-1 text-xs text-zinc-500">
+                            {{ $activity->created_at->diffForHumans() }}
+                        </time>
                     </li>
+                    @empty
+                    <li class="ml-6 text-sm text-zinc-500">No activity yet.</li>
+                    @endforelse
 
                 </ol>
+
 
             </div>
 

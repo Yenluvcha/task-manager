@@ -1,7 +1,7 @@
 <x-layout>
 
     <h1 class="mb-6 text-3xl font-bold text-black dark:text-white">Dashboard</h1>
-    
+
     <div class="grid gap-4 mb-10 sm:grid-cols-2 lg:grid-cols-4">
 
         <div
@@ -38,7 +38,8 @@
             class="flex justify-between gap-3 p-4 bg-white border rounded-lg shadow-xs border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
             <div class="flex flex-col gap-2">
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">In Progress</p>
-                <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">{{ $statusCounts['in progress'] ?? '-' }}</h3>
+                <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">{{ $statusCounts['in progress'] ?? '-' }}
+                </h3>
             </div>
             <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-yellow-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -53,7 +54,8 @@
             class="flex justify-between gap-3 p-4 bg-white border rounded-lg shadow-xs border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
             <div class="flex flex-col gap-2">
                 <p class="text-sm text-zinc-500 dark:text-zinc-400">Completed</p>
-                <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">{{ $statusCounts['completed'] ?? '-' }}</h3>
+                <h3 class="text-xl font-bold text-zinc-800 dark:text-zinc-200">{{ $statusCounts['completed'] ?? '-' }}
+                </h3>
             </div>
             <div class="flex items-center justify-center w-16 h-16 rounded-lg bg-green-500/10">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -69,8 +71,27 @@
     <div>
         <h1 class="text-xl font-semibold">Latest activity</h1>
 
-        <div>
-            
+        <div class="mt-3 space-y-3">
+            @forelse($latestActivities as $activity)
+            <div class="flex items-start gap-3 text-sm">
+                <span class="mt-1 h-2.5 w-2.5 rounded-full
+                    {{ $activity->action === 'created' ? 'bg-green-500' :
+                       ($activity->action === 'updated' ? 'bg-blue-500' :
+                       ($activity->action === 'deleted' ? 'bg-red-500' : 'bg-zinc-400')) }}">
+                </span>
+
+                <div>
+                    <p class="text-zinc-700 dark:text-zinc-200">
+                        {{ $activity->description }}
+                    </p>
+                    <p class="text-xs text-zinc-500">
+                        {{ $activity->created_at->diffForHumans() }}
+                    </p>
+                </div>
+            </div>
+            @empty
+            <p class="text-sm text-zinc-500">No activity yet.</p>
+            @endforelse
         </div>
     </div>
 

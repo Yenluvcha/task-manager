@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\Tag;
 use App\Models\User;
+use App\Services\ActivityLogger;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -89,7 +90,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        $task->load('tags');
+        $task->load(['tags', 'activities.user']);
         return view('tasks.show', ['task' => $task]);
     }
 
@@ -131,8 +132,16 @@ class TaskController extends Controller
             'due_date' => request('due_date')
         ]);
 
-        $task->tags()->sync($request->tags ?? []);
+        $changes = $task->tags()->sync($request->tags ?? []);
         $task->touch();
+
+        if (!empty($changes['attached'])) {
+            ActivityLogger::log('tag_attached', $task, null, ['tag_ids' => $changes['attached']], 'Tags added');
+        }
+
+        if (!empty($changes['detached'])) {
+            ActivityLogger::log('tag_detached', $task, null, ['tag_ids' => $changes['detached']], 'Tags removed');
+        }
 
         return redirect('/tasks/' . $task->id);
     }

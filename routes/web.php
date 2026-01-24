@@ -4,6 +4,7 @@ use App\Http\Controllers\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TaskController;
+use App\Models\ActivityLog;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,9 +32,16 @@ Route::middleware('auth')->group(function () {
             ->groupBy('status')
             ->pluck('total', 'status');
 
+        $latestActivities = ActivityLog::with('subject')
+            ->where('user_id', $userId)
+            ->latest()
+            ->take(5)
+            ->get();
+
         return view('dashboard', [
             'statusCounts' => $statusCounts,
-            'totalTasks' => $totalTasks
+            'totalTasks' => $totalTasks,
+            'latestActivities' => $latestActivities
         ]);
     });
     Route::resource('tasks', TaskController::class);
